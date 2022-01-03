@@ -122,6 +122,79 @@ Gui b;
 		
 		return bounds;
 	}
+
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Gui getB() {
+		return b;
+	}
+
+	public void setB(Gui b) {
+		this.b = b;
+	}
+
+	public Blocktype getType() {
+		return type;
+	}
+
+	public void setType(Blocktype type) {
+		this.type = type;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getRotation() {
+		return rotation;
+	}
+
+	public void setRotation(int rotation) {
+		this.rotation = rotation;
+	}
+
+	public int[][][] getBounds() {
+		return bounds;
+	}
+
+	public void setBounds(int[][][] bounds) {
+		this.bounds = bounds;
+	}
+
+	public boolean isMovable() {
+		return movable;
+	}
+
+	public void setMovable(boolean movable) {
+		this.movable = movable;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
 	
 	
 	

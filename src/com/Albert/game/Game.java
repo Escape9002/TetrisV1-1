@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.Albert.Userinterface.Gui;
 
 public class Game {
-Gui c;
+static Gui c;
 
 	public static int score =0;
 	public static int highscore =0;
@@ -17,7 +17,9 @@ Gui c;
 	public static Block currentBlock;
 	public static Block nextBlock;
 	
-	public static int[][] map =new int[c.anzahlbreite][c.anzahlhöhe];
+	public static int[][] map =new int[Gui.anzahlbreite][Gui.anzahlhöhe];
+	
+	public static GameState gamestate = GameState.start;
 	
 	public static void clear() { //Setzt die Map auf Null
 		
@@ -33,9 +35,8 @@ Gui c;
 	score = 0 ;
 		
 	}
-	
-	
-	
+
+
 	
 	
 	

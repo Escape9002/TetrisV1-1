@@ -1,5 +1,5 @@
 package com.Albert.game;
 
 public enum GameState {
-	statrt
+	start, ingame, pause, gameover
 }
