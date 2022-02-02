@@ -12,7 +12,7 @@ public class Gui {
 	public static int height =576; //Höhe Spielfeld
 	
 	public static int anzahlbreite = 10;
-	public static int anzahlhöhe =18;
+	public static int anzahlhoehe =18;
 	
 	
 	JFrame jf;

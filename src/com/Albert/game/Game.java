@@ -17,7 +17,7 @@ static Gui c;
 	public static Block currentBlock;
 	public static Block nextBlock;
 	
-	public static int[][] map =new int[Gui.anzahlbreite][Gui.anzahlhöhe];
+	public static int[][] map =new int[Gui.anzahlbreite][Gui.anzahlhoehe];
 	
 	public static GameState gamestate = GameState.start;
 	

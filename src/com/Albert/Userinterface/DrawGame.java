@@ -38,7 +38,7 @@ Gui a;
 		
 		g.setColor(Color.LIGHT_GRAY); //Farbe HellGrau
 		for (int x=0; x<a.anzahlbreite; x++) { //Zeichen des Rasters Größe auf dem Gameboy //Breite des Rasters 10
-			for(int y=0; y<a.anzahlhöhe; y++) { //Höhe 18
+			for(int y=0; y<a.anzahlhoehe; y++) { //Höhe 18
 				g.drawRect(x*(a.width/10), y*(a.height/18), (a.width/10), (a.height/18)); //Höhe und Breite aus Gui geplant
 				
 			}
