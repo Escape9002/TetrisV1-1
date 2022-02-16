@@ -11,14 +11,14 @@ public class Gui {
 	public static int width =320; // Breite Spielfeld
 	public static int height =576; //HÃ¶he Spielfeld
 	
-	public static int anzahlbreite = 10;
-	public static int anzahlhoehe =18;
+	public static int anzahlbreite = 10; //Anzahl Felder in der Breite	
+	public static int anzahlhoehe =18; // Anzahl der Felder in der Höhe
 	
 	
 	JFrame jf;
 	
 	
-	public void create() { // Start was passiert
+	public void create() { //Methode zum Erzeuhem des GUIS
 		
 		
 		jf =new JFrame("TetrisAlbert");
@@ -34,17 +34,17 @@ public class Gui {
 		
 		jf.requestFocus();
 		
-		DrawGame dg =new DrawGame(); //Objekt Draw game Obejkt der felderlinien
-		setupDraw(dg,0,0,width+1,height+1); //Methode SetupDraw mit den Parametern die Ã¼bergeben werden
+		DrawGame dg =new DrawGame(); //Objekt zum  zeichnen der Kästchend des Spielfelds
+		setupDraw(dg,0,0,width+1,height+1); 
 		
-		DrawInterface di =new DrawInterface();
+		DrawInterface di =new DrawInterface(); //Zeihnen des Felds für den nächsten Block
 		setupDraw(di,width +1, 1, width ,height);
 		
 		jf.setVisible(true); //Sichtbar
 		
 	}
 	
-	private void setupDraw(JLabel draw, int x, int y, int width, int height) { //BenÃ¶tigt da mehrere Draw-Klassen
+	private void setupDraw(JLabel draw, int x, int y, int width, int height) { //Methode zum zeichnen 
 		draw.setBounds(x, y, width, height);
 		draw.setVisible(true);
 		jf.add(draw);

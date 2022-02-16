@@ -2,6 +2,9 @@ package com.Albert.Userinterface;
 
 import javax.swing.JLabel;
 
+import com.Albert.Data.Conversion;
+import com.Albert.game.Game;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -11,6 +14,32 @@ public class DrawInterface extends JLabel {
 	protected void paintComponent(Graphics g) { //Kein Rückgabewert Methode ist durch Protected auch in vererbten Klassen verwendbar sonst wäre sie nur im Package verwendbar
 		
 		super.paintComponent(g); //Übergabe des  Graphics Objektes g
+		
+		g.setColor(Game.nextBlock.getColor()); //Farbe auf den neuen Block setzten 
+		
+		
+		
+		/* Zeichnen des neuen Blockes im oberen feld */
+		
+		for(int i=0; i<Game.nextBlock.getBounds()[Game.nextBlock.getRotation()].length ;i++) {    		
+			for(int j=0; j<Game.nextBlock.getBounds()[Game.nextBlock.getRotation()][i].length; j++) {
+				if(Game.nextBlock.getBounds()[Game.nextBlock.getRotation()][i][j] ==1) {
+		         
+					g.fillRect(Conversion.cellToCoord(1 +i), 
+							    Conversion.cellToCoord(j),
+							    (32),(32));
+			//System.out.println("s");
+				}
+				
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
 		
 		g.setColor(Color.LIGHT_GRAY); //Farbe HellGrau
 		

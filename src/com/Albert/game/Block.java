@@ -5,11 +5,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import com.Albert.Userinterface.Gui;
 
 
 public class Block {     
-Gui b;
+
 	Blocktype type; // Variable von Blocktype mit dem Namen type
 	
 	int x ; int y; int size; int rotation =0;
@@ -17,6 +16,7 @@ Gui b;
 	
 	Color color;
 	boolean movable = true; 
+	     
 	
 	public Block() { //Konstruktor
 		
@@ -57,7 +57,7 @@ Gui b;
 			break;
 		}
 	
-		x = Gui.width/2; //In der Mitte spawn
+		x = 320/2; //In der Mitte spawn
 		y = -2;	//oberhalbspawn
 		
 		try {                                                 //3D Array ist das aus der Blockbuilder Funktion
@@ -96,31 +96,27 @@ Gui b;
 			break;
 		}
 		
-		File file = new File("rsc/blocks/"+type+".txt");
+		File file = new File("rsc/blocks/" + type + ".txt");
 		Scanner sc = new Scanner(file);
-		
-		for(int variant =0; variant <4; variant++) {
-			for(int i =0; i<bounds[0].length;i++) {
-				if(sc.hasNext()) {
-					
-					String[] srow =sc.next().split("");
-					int[] row =new int[bounds[0].length];
-					
-					for(int j=0; j<row.length; j++) {
-						
-						row[j]= Integer.valueOf(srow[j]);
-						bounds[variant][j][i] =row[j];
+
+		for (int variant = 0; variant < 4; variant++) {
+			for (int i = 0; i < bounds[0].length; i++) {
+
+				if (sc.hasNext()) {
+					String[] srow = sc.next().split("");
+					int[] row = new int[bounds[0].length];
+
+					for (int j = 0; j < row.length; j++) {
+						row[j] = Integer.valueOf(srow[j]);
+						bounds[variant][j][i] = row[j];
+
 					}
 				}
-				
-				
-				
-			}			
+			}
 		}
-		
-		
-		
+
 		return bounds;
+
 	}
 
 	public Color getColor() {
@@ -128,13 +124,6 @@ Gui b;
 		return null;
 	}
 
-	public Gui getB() {
-		return b;
-	}
-
-	public void setB(Gui b) {
-		this.b = b;
-	}
 
 	public Blocktype getType() {
 		return type;

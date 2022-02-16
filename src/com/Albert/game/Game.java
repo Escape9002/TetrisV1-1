@@ -2,12 +2,13 @@ package com.Albert.game;
 
 import java.util.ArrayList;
 
-import com.Albert.Userinterface.Gui;
+
 
 public class Game {
-static Gui c;
+
 
 	public static int score =0;
+	
 	public static int highscore =0;
 	public static int scoreToAdd =0;
 	public static boolean spawnNewBlock =false;
@@ -17,7 +18,7 @@ static Gui c;
 	public static Block currentBlock;
 	public static Block nextBlock;
 	
-	public static int[][] map =new int[Gui.anzahlbreite][Gui.anzahlhoehe];
+	public static int[][] map =new int[10][18];
 	
 	public static GameState gamestate = GameState.start;
 	

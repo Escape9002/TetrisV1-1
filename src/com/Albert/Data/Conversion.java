@@ -1,20 +1,19 @@
 package com.Albert.Data;
 
-import com.Albert.Userinterface.Gui;
+
 
 public class Conversion {
-Gui d;
-	
+
 
 
 public static int cellToCoord(int cell) {
 		
-		return cell * (Gui.width/Gui.anzahlbreite);
+		return cell * (32); //Wandelt Rasterzelle in Koordinaten	
 	}
 	
 	public static int coordoCell(int coord) {
 		
-		return coord / (Gui.width/Gui.anzahlbreite);
+		return coord / 32; //wandelt Koordinaten in Rasterzellen
 	}
 	
 	

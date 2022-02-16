@@ -13,8 +13,8 @@ public class KeyHandler implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+	 
+		if(Gamest)
 	}
 
 	@Override

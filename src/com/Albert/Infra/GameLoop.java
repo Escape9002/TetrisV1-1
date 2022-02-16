@@ -14,9 +14,9 @@ public class GameLoop extends Thread{
 		while(running==true) {
 			try {
 			if(Game.gamestate ==GameState.start) {
-				
+				System.out.println("d");
 				Game.currentBlock.setY(Game.currentBlock.getY() +1);
-				
+			
 				
 				
 				if(Game.spawnNewBlock) {
