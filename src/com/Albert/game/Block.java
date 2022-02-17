@@ -11,7 +11,7 @@ public class Block {
 
 	Blocktype type; // Variable von Blocktype mit dem Namen type
 	
-	int x ; int y; int size; int rotation =0;
+	int x, y, size, rotation =0;
 	int[][][] bounds;
 	
 	Color color;
@@ -20,7 +20,7 @@ public class Block {
 	
 	public Block() { //Konstruktor
 		
-		type = Blocktype.random(); //Zufälliger Block
+		type = Blocktype.random(); //Zufaelliger Block
 		switch(type) { 
 		case I:
 			size=4;
@@ -57,11 +57,12 @@ public class Block {
 			break;
 		}
 	
-		x = 320/2; //In der Mitte spawn
+		x = 4; //In der Mitte spawn
 		y = -2;	//oberhalbspawn
 		
 		try {                                                 //3D Array ist das aus der Blockbuilder Funktion
 			bounds =blockBuilder(type);
+			System.out.println("Blockbuilder runs");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,7 +70,7 @@ public class Block {
 		
 	}
 	
-	public void rotate() { //rotation VAriable für rotate Methode erhöhen
+	public void rotate() { //rotation VAriable fuer rotate Methode erhoehen
 		rotation ++;
 		if(rotation ==4) {
 			rotation =0;
@@ -77,26 +78,27 @@ public class Block {
 		
 	}
 	
-	public int[][][] blockBuilder(Blocktype type) throws FileNotFoundException{ //Schreibt die Blöcke in ein 3DArray
-		
-		int[][][] bound;
-		
+	public int[][][] blockBuilder(Blocktype type) throws FileNotFoundException{ //Schreibt die Bloecke in ein 3DArray
+
+		//int[][][] bound;
+
 		switch(type) {
-		
+
 		case I:
-			bounds =new int[4][4][4]; //I und O sonder, da andere Größe
+			bounds =new int[4][4][4]; //I und O sonder, da andere Groesze
 			break;
-		
+
 		case O:
 			bounds= new int[4][2][2];
 			break;
-			
+
 		default:
 			bounds= new int[4][3][3];
 			break;
 		}
-		
+
 		File file = new File("rsc/blocks/" + type + ".txt");
+		System.out.println("rsc/blocks/" + type + ".txt");
 		Scanner sc = new Scanner(file);
 
 		for (int variant = 0; variant < 4; variant++) {

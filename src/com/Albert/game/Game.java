@@ -11,7 +11,7 @@ public class Game {
 	
 	public static int highscore =0;
 	public static int scoreToAdd =0;
-	public static boolean spawnNewBlock =false;
+	public static boolean spawnNewBlock =true;
 	public static boolean speedup =false;
 	
 	public static ArrayList<Block> blocks =new ArrayList<Block>();
@@ -20,7 +20,7 @@ public class Game {
 	
 	public static int[][] map =new int[10][18];
 	
-	public static GameState gamestate = GameState.start;
+	public static GameState gamestate = GameState.ingame;
 	
 	public static void clear() { //Setzt die Map auf Null
 		
