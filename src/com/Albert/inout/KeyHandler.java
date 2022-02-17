@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 public class KeyHandler implements KeyListener {
 
 	@Override
-	public void keyTyped(KeyEvent e) { // wird eigentlich nicht benötigt
+	public void keyTyped(KeyEvent e) { // wird eigentlich nicht benoetigt
 		// TODO Auto-generated method stub
 		
 	}
@@ -14,7 +14,7 @@ public class KeyHandler implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 	 
-		if(Gamest)
+		//if(Gamest)
 	}
 
 	@Override

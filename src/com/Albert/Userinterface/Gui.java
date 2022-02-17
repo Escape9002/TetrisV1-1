@@ -6,10 +6,9 @@ import javax.swing.JLabel;
 
 
 public class Gui {
-
 	
 	public static int width =320; // Breite Spielfeld
-	public static int height =576; //HÃ¶he Spielfeld
+	public static int height =576; // Hoehe Spielfeld
 	
 	public static int anzahlbreite = 10; //Anzahl Felder in der Breite	
 	public static int anzahlhoehe =18; // Anzahl der Felder in der Höhe
@@ -18,15 +17,15 @@ public class Gui {
 	JFrame jf;
 	
 	
-	public void create() { //Methode zum Erzeuhem des GUIS
+	public void create() { //Methode zum Erzeugen des GUIS
 		
 		
 		jf =new JFrame("TetrisAlbert");
-		jf.setSize(width +217, height + 41); // GrÃ¶ÃŸe des Spielf eldes +Linker Rand fÃ¼r Score + HÃ¶he damit es passt
+		jf.setSize(width +217, height + 41); // Groesze des Spielfeldes + Linker Rand fuer Score + Hoehe damit es passt
 		
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Rotes X = FensterschlieÃŸen
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Rotes X = Fensterschlieszen
 		jf.setLocationRelativeTo(null); //Mitte des Bildschirms
-		jf.setResizable(false); //GrÃ¶ÃŸe nicht verÃ¤nderbar
+		jf.setResizable(false); //Groesze nicht veraenderbar
 		
 		jf.setLayout(null);  
 		
@@ -34,10 +33,10 @@ public class Gui {
 		
 		jf.requestFocus();
 		
-		DrawGame dg =new DrawGame(); //Objekt zum  zeichnen der Kästchend des Spielfelds
+		DrawGame dg =new DrawGame(); //Objekt zum  zeichnen der Kaestchend des Spielfelds
 		setupDraw(dg,0,0,width+1,height+1); 
 		
-		DrawInterface di =new DrawInterface(); //Zeihnen des Felds für den nächsten Block
+		DrawInterface di =new DrawInterface(); //Zeichnen des Felds für den nächsten Block
 		setupDraw(di,width +1, 1, width ,height);
 		
 		jf.setVisible(true); //Sichtbar
