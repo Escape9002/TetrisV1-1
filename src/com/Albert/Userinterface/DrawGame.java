@@ -38,6 +38,7 @@ public class DrawGame extends JLabel {
 			for (int k = 0; k < Game.currentBlock.getBounds()[Game.currentBlock.getRotation()][j].length; k++) {
 			
 				if (Game.currentBlock.getBounds()[Game.currentBlock.getRotation()][j][k] == 1) {
+					g.setColor(Game.currentBlock.getColor());
 					g.fillRect(Conversion.cellToCoord(Game.currentBlock.getX() + j),
 							Conversion.cellToCoord(Game.currentBlock.getY() + k), 32, 32);
 			

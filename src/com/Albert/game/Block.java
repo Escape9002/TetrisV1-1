@@ -123,7 +123,7 @@ public class Block {
 
 	public Color getColor() {
 		// TODO Auto-generated method stub
-		return null;
+		return color;
 	}
 
 
@@ -186,6 +186,27 @@ public class Block {
 	public void setColor(Color color) {
 		this.color = color;
 	}
+
+	public int getTypeValue() {
+		// TODO Auto-generated method stub
+
+		switch(type) {
+		
+		case I: return 1;
+		case O: return 2;
+		case T: return 3;
+		case L: return 4;
+		case J: return 5;
+		case Z: return 6;
+		case S: return 7;
+		}
+		
+		return  0;
+		}
+		
+		
+		
+	}
 	
 	
 	
@@ -193,4 +214,4 @@ public class Block {
 	
 	
 	
-}
+
