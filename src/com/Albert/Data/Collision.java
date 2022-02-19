@@ -6,7 +6,7 @@ import com.Albert.game.Game;
 public class Collision {
 
 	
-	public static boolean collideWithBLock(Block b, int direction) { // Guckt nach der Kollison mit anderen Blöcken
+	public static boolean collideWithBlock(Block b, int direction) { // Guckt nach der Kollison mit anderen Blöcken
 		
 		
 		switch(direction) {
@@ -219,11 +219,41 @@ public class Collision {
 	 if(collideWithWall(block, 1)) {
 		 return true;
 	 }
-	  block.setX(b.getX());
+	  block.setX(b.getX()+2);
 	 
 	  if(collideWithWall(block, -1)) {
 		  return true;
 	  }
+	  
+	  
+	  
+	  
+	  
+	  if(b.getY() > 0) {
+	  try {
+		for(int x =0; x < b.getBounds()[rot].length; x++) {                         
+				for(int y =0; y < b.getBounds()[rot].length; y++)
+				{
+					if(b.getBounds()[b.getRotation()][x][y] ==1) {                    
+						
+						if(Game.map[b.getX() +x-1][b.getY()+y] >=1) {
+							
+							return true;
+						}
+						
+						
+						}
+					}
+				}
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		return true;
+	}
+		}
+	  
+	  
+	  
+	  
 	  
 	 return false;
 	 

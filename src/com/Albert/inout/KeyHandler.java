@@ -3,6 +3,7 @@ package com.Albert.inout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import com.Albert.Data.Collision;
 import com.Albert.game.Game;
 import com.Albert.game.GameState;
 
@@ -31,7 +32,9 @@ public class KeyHandler implements KeyListener {
 		  
 		  if(e.getKeyCode() == KeyEvent.VK_SPACE)
 		  {
-			  	Game.currentBlock.rotate();
+			  if(!Collision.collidInRotation(Game.currentBlock))
+			  {
+			  	Game.currentBlock.rotate();}
 		  }
 		  
 		  if(e.getKeyCode() == KeyEvent.VK_DOWN)
@@ -41,13 +44,20 @@ public class KeyHandler implements KeyListener {
 		  
 		  if(e.getKeyCode() == KeyEvent.VK_RIGHT)
 		  {
+			  
+			  if(!Collision.collideWithWall(Game.currentBlock, 1) && !Collision.collideWithWall(Game.currentBlock, 1))
+					  {
+				  
 			 Game.currentBlock.setX(Game.currentBlock.getX() +1 );
+			 }
 		  }
 		  
 		  if(e.getKeyCode() == KeyEvent.VK_LEFT)
 		  {
+			  
+			  if(!Collision.collideWithWall(Game.currentBlock, -1 )&&!Collision.collideWithWall(Game.currentBlock, -1 )){
 			  Game.currentBlock.setX(Game.currentBlock.getX() -1 );
-		
+			  }
 		  }
 		  
 		  if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
