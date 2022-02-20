@@ -260,12 +260,22 @@ public class Collision {
 	 
  }
 		
+	public static void checkFullRow( int multiplier) {
+		
+		
+	}
+		
+		
+	private static void delRow(int row, int multiplier) {
 		
 		
 		
+	}
+		
+	private static void checkLoose() {
 		
 		
-		
+	}
 		
 		
 	

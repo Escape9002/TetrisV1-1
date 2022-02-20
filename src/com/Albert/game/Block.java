@@ -80,7 +80,7 @@ public class Block {
 	
 	public int[][][] blockBuilder(Blocktype type) throws FileNotFoundException{ //Schreibt die Bloecke in ein 3DArray
 
-		//int[][][] bound;
+		int[][][] bounds;
 
 		switch(type) {
 

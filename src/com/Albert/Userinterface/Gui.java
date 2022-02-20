@@ -33,6 +33,10 @@ public class Gui {
 		
 		jf.requestFocus();
 		
+		DrawMenu dm = new DrawMenu();
+		setupDraw(dm,0,0,width +200, height);
+		
+		
 		DrawGame dg =new DrawGame(); //Objekt zum  zeichnen der Kaestchend des Spielfelds
 		setupDraw(dg,0,0,width+1,height+1); 
 		

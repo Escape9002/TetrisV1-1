@@ -20,7 +20,7 @@ public class Game {
 	
 	public static int[][] map =new int[10][18];
 	
-	public static GameState gamestate = GameState.ingame;
+	public static GameState gamestate = GameState.start;
 	
 	public static void clear() { //Setzt die Map auf Null
 		
