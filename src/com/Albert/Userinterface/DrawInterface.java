@@ -35,7 +35,8 @@ public class DrawInterface extends JLabel {
 		}
 	   g.setColor(Color.BLACK);
 	   g.drawRect(32, 0, 4*32, 4*32); //Zeichnen eines Rechtecks auszern rum
-		
+	
+	   
 		
 	   g.setColor(Game.nextBlock.getColor()); //Farbe auf den neuen Block setzten 
 		
@@ -55,6 +56,11 @@ public class DrawInterface extends JLabel {
 				
 			}
 		}
+		
+		
+		g.drawString("Punkte:   " + Game.score, 32 , 200);
+		g.drawString("Highscore. "+ Game.highscore, 32, 250 );
+		
 		
 		repaint(); //"neuzeichnen/akktualisieren"
 

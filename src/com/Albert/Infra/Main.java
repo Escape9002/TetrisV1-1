@@ -9,9 +9,13 @@ import com.Albert.Userinterface.Gui;
 import com.Albert.game.Block;
 import com.Albert.game.Game;
 //import com.Albert.inout.Backgroundplayer;
+import com.Albert.inout.DataHandler;
 
 public class Main {
 	public  static void main(String[] args) {          // Main Methode
+		
+		DataHandler.load();
+		
 		
 		Game.currentBlock = new Block();
 		Game.blocks.add(Game.currentBlock);

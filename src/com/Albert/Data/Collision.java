@@ -2,10 +2,82 @@ package com.Albert.Data;
 
 import com.Albert.game.Block;
 import com.Albert.game.Game;
+import com.Albert.game.GameState;
+import com.Albert.inout.DataHandler;
 
 public class Collision {
 
-	
+	public static boolean collideWithBlock(Block b, int direction) {
+		// direction: -1 = links, 0 = runter, 1 = rechts
+
+		switch (direction) {
+		case -1:
+			if (b.getY() > 0) {
+				if (b.getX() > 0) {
+					for (int i = 0; i < b.getBounds()[b.getRotation()].length; i++) {
+						for (int j = 0; j < b.getBounds()[b.getRotation()][i].length; j++) {
+							if (b.getBounds()[b.getRotation()][i][j] == 1) {
+								if (Game.map[b.getX() + i - 1][b.getY() + j] >= 1) {
+									System.out.println("links");
+									return true;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			break;
+		case 0:
+			if (b.getY() + b.getSize() > 1) {
+				if (b.getY() - b.getSize() < 17) {
+					try {
+						for (int i = 0; i < b.getBounds()[b.getRotation()].length; i++) {
+							for (int j = 0; j < b.getBounds()[b.getRotation()][i].length; j++) {
+								if (b.getBounds()[b.getRotation()][i][j] == 1) {
+
+									if (Game.map[b.getX() + i][b.getY() + j + 1] >= 1) {
+
+										Game.spawnNewBlock = true;
+										fillBlock(b);
+										System.out.println("unten/oben");
+										return true;
+									}
+
+								}
+							}
+						} 
+					} catch (Exception e) {
+						return false;
+					}
+				}
+			}
+
+			break;
+		case 1:
+			if (b.getY() > 0) {
+				if (b.getX() < 10) {
+					for (int i = 0; i < b.getBounds()[b.getRotation()].length; i++) {
+						for (int j = 0; j < b.getBounds()[b.getRotation()][i].length; j++) {
+							if (b.getBounds()[b.getRotation()][i][j] == 1) {
+								if (Game.map[b.getX() + i + 1][b.getY() + j] >= 1) {
+
+									System.out.println("rechter Rand");
+									return true;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			break;
+		}
+
+		return false;
+	}
+
+	/*
 	public static boolean collideWithBlock(Block b, int direction) { // Guckt nach der Kollison mit anderen Blöcken
 		
 		
@@ -19,7 +91,7 @@ public class Collision {
 						if(b.getBounds()[b.getRotation()][x][y] ==1) {                    // Besteht der Block an dieser Stelle also weiß oder farbig
 							if(Game.map[b.getX() + x -1][b.getY() + y] >= 1) {
 								
-								System.out.println("links");
+						
 								return true;
 								
 							}
@@ -46,7 +118,7 @@ public class Collision {
 									
 									fillBlock(b);
 									
-									System.out.println("unten/oben");
+									
 									return true;
 								}
 							}
@@ -70,7 +142,6 @@ public class Collision {
 						if(b.getBounds()[b.getRotation()][x][y] ==1) {                    // Besteht der Block an dieser Stelle also weiß oder farbig
 							if(Game.map[b.getX() + x +1][b.getY() + y] >= 1) {
 								
-								System.out.println("rechter Rand");
 								return true;
 							}
 						}
@@ -91,7 +162,7 @@ public class Collision {
 	}
 		
 		
-		
+		*/
 		
 		private static void fillBlock(Block b) {  //Fügt den Block sobald er unten ist in das MAp array (befindet sich in der Game Klasse) ein
 			
@@ -116,7 +187,9 @@ public class Collision {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			checkFullRow(1); 
+			System.out.println("Checkfullrow");
+			checkLoose();
 			}
 			
 	
@@ -262,18 +335,81 @@ public class Collision {
 		
 	public static void checkFullRow( int multiplier) {
 		
+		int blocksInRow = 0; //Zähler ob die Reihe voll ist
 		
+		for(int y = Game.map[0].length -1; y >0 ; y--) {
+			for(int x = 0; x < Game.map.length; x++) {
+				if(Game.map[x][y] > 0) {
+					
+					blocksInRow = blocksInRow ++;
+					
+				}
+				
+				
+				
+			}
+			
+		if(blocksInRow == 10) {
+			Game.scoreToAdd = Game.scoreToAdd + (10*multiplier);
+			deleteRow(y, multiplier);
+			break;
+			
+		}else {
+			blocksInRow = 0;
+		}
+		}
+	Game.score = Game.score +Game.scoreToAdd;
+	Game.scoreToAdd = 0;
+	
+	if(Game.score > Game.highscore) {
+		Game.highscore =Game.score;
+		DataHandler.save();
 	}
 		
 		
-	private static void delRow(int row, int multiplier) {
-		
-		
 		
 	}
+		
+	
+	
+	
+	
+	
+		
+	private static void deleteRow(int row, int multiplier) {
+		
+		for(int x = 0; x< Game.map.length; x++) {
+			
+			Game.map[x][row] = 0;
+			
+		}
+		
+		
+		for(int y =row; y > 1; y--) {
+			
+			for(int x =0; x < Game.map.length; x++) {
+				
+				Game.map[x][y] = Game.map[x][y- 1];
+			}
+		}
+		checkFullRow(multiplier +1);
+		
+	}
+	
+	
+	
+	
+	
+	
 		
 	private static void checkLoose() {
 		
+		for(int i = 0; i< Game.map.length; i++) {
+			if(Game.map[i][0] > 0) {
+				
+				Game.gamestate = GameState.gameover;
+			}
+		}
 		
 	}
 		

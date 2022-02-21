@@ -13,18 +13,18 @@ public class GameLoop extends Thread{
 			try {
 			if(Game.gamestate == GameState.ingame) {
 				
-				if(!Collision.collideWithWall(Game.currentBlock, 0) && !Collision.collideWithBlock(Game.currentBlock, 0)) //Zweimal aufgerufen also vier zeilen drunter, damit man ihn in der untersten Ebene nicht bewegen kann, aber auf Blöcken bewegen kann
+				if(!Collision.collideWithWall(Game.currentBlock, 0) && !Collision.collideWithBlock(Game.currentBlock, 0)) 
 				{
 					System.out.println("d");
 					Game.currentBlock.setY(Game.currentBlock.getY() + 1);
-					Collision.collideWithWall(Game.currentBlock, 0);
+			
 				}
 				
 				
 			
 
 				if(Game.spawnNewBlock) {
-					
+					Collision.checkFullRow(1);
 					Game.blocks.add(Game.nextBlock);
 					Game.currentBlock = Game.nextBlock;
 					Game.nextBlock = new Block();
