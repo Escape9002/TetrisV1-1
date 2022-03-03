@@ -9,7 +9,7 @@ import com.Albert.inout.DataHandler;
 public class Collision {
 
 	/*
-	 * CollideWithBlock checkt ob der currentBlock mit einem der bereits gezeichneten Blöcke in der Map Variable kollidiert.
+	 * CollideWithBlock checkt ob der currentBlock mit einem der bereits gezeichneten Blöcke in der Map Variable kollidiert. De
 	 */
 	public static boolean collideWithBlock(Block b, int direction) {
 	
@@ -175,12 +175,15 @@ public class Collision {
 				for (int j = 0; j < b.getBounds()[b.getRotation()][i].length; j++) {
 					if (b.getBounds()[b.getRotation()][i][j] == 1) {
 						Game.map[b.getX() + i][b.getY() + j] = b.getTypeValue();
-						Audio.musikplay("rsc/Music/fall.wav", false, 0);
-
+						
+						
 					}
 
 				}
 			}
+			
+			Audio.musikplay("rsc/Music/fall.wav", false, 0);
+			System.out.println("Block filled");
 		} catch (Exception e) {
 
 		}

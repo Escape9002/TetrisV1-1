@@ -31,7 +31,7 @@ public class Main {
 		}
 		
 		/* Mussik */
-		new Audio() ;
+		
 		Audio.musikplay("rsc/Music/backgroundmusik.wav", true, 2);
 		
 		

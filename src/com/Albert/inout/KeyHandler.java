@@ -45,7 +45,7 @@ public class KeyHandler implements KeyListener {
 		  if(e.getKeyCode() == KeyEvent.VK_RIGHT)
 		  {
 			  
-			  if(!Collision.collideWithWall(Game.currentBlock, 1) && !Collision.collideWithWall(Game.currentBlock, 1))
+			  if(!Collision.collideWithWall(Game.currentBlock, 1) && !Collision.collideWithBlock(Game.currentBlock, 1))
 					  {
 				  
 			 Game.currentBlock.setX(Game.currentBlock.getX() +1 );
@@ -55,7 +55,7 @@ public class KeyHandler implements KeyListener {
 		  if(e.getKeyCode() == KeyEvent.VK_LEFT)
 		  {
 			  
-			  if(!Collision.collideWithWall(Game.currentBlock, -1 )&&!Collision.collideWithWall(Game.currentBlock, -1 )){
+			  if(!Collision.collideWithWall(Game.currentBlock, -1 )&&!Collision.collideWithBlock(Game.currentBlock, -1 )){
 			  Game.currentBlock.setX(Game.currentBlock.getX() -1 );
 			  }
 		  }

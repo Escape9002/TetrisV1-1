@@ -43,9 +43,9 @@ public class Audio{
 					clip1.loop(Clip.LOOP_CONTINUOUSLY);
 					Thread.sleep(clip1.getMicrosecondLength()/1000);
 					} else {
-			        clip1.stop();
+			      
 					}
-					
+					System.out.println(trackname + " played");
 					
 					
 					
