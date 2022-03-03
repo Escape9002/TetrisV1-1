@@ -13,11 +13,13 @@ public class GameLoop extends Thread{
 			try {
 			if(Game.gamestate == GameState.ingame) {
 				
-				if(!Collision.collideWithWall(Game.currentBlock, 0) && !Collision.collideWithBlock(Game.currentBlock, 0)) 
+				if(!Collision.collideWithWall(Game.currentBlock, 0) ) 
 				{
+					if(!Collision.collideWithBlock(Game.currentBlock, 0)) {
 					System.out.println("d");
+					
 					Game.currentBlock.setY(Game.currentBlock.getY() + 1);
-			
+					}			
 				}
 				
 				
@@ -33,7 +35,7 @@ public class GameLoop extends Thread{
 				}
 			}
 			if(!Game.speedup) {
-				sleep(1000);
+				sleep(1000); //zeit ändern
 			}else {
 				sleep(100);
 			}

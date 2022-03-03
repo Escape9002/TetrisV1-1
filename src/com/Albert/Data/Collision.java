@@ -1,14 +1,18 @@
 package com.Albert.Data;
-
+ /*Imports */
 import com.Albert.game.Block;
 import com.Albert.game.Game;
 import com.Albert.game.GameState;
+import com.Albert.inout.Audio;
 import com.Albert.inout.DataHandler;
 
 public class Collision {
 
+	/*
+	 * CollideWithBlock checkt ob der currentBlock mit einem der bereits gezeichneten Blöcke in der Map Variable kollidiert.
+	 */
 	public static boolean collideWithBlock(Block b, int direction) {
-		// direction: -1 = links, 0 = runter, 1 = rechts
+	
 
 		switch (direction) {
 		case -1:
@@ -18,7 +22,8 @@ public class Collision {
 						for (int j = 0; j < b.getBounds()[b.getRotation()][i].length; j++) {
 							if (b.getBounds()[b.getRotation()][i][j] == 1) {
 								if (Game.map[b.getX() + i - 1][b.getY() + j] >= 1) {
-
+                                     
+									System.out.println("linksBlock");
 									return true;
 								}
 							}
@@ -75,6 +80,8 @@ public class Collision {
 
 		return false;
 	}
+	
+	
 
 	public static boolean collideInRotation(Block b) {
 		int rot = b.getRotation() + 1;
@@ -168,6 +175,7 @@ public class Collision {
 				for (int j = 0; j < b.getBounds()[b.getRotation()][i].length; j++) {
 					if (b.getBounds()[b.getRotation()][i][j] == 1) {
 						Game.map[b.getX() + i][b.getY() + j] = b.getTypeValue();
+						Audio.musikplay("rsc/Music/fall.wav", false, 0);
 
 					}
 
@@ -193,6 +201,7 @@ public class Collision {
 			if (blocksInRow == 10) {
 				Game.scoreToAdd += (10 * multiplier);
 				delRow(y, multiplier);
+				Audio.musikplay("rsc/Music/clear.wav", false, 0);
 				break;
 			} else {
 				blocksInRow = 0;
@@ -206,6 +215,7 @@ public class Collision {
 		if (Game.score > Game.highscore) {
 			Game.highscore = Game.score;
 			DataHandler.save();
+			Audio.musikplay("rsc/Music/succes.wav", false, 0);
 		}
 	}
 
@@ -229,6 +239,7 @@ public class Collision {
 
 			if (Game.map[x][0] > 0) {
 				Game.gamestate = GameState.gameover;
+				Audio.musikplay("rsc/Music/gameover.wav", false, 0);
 			}
 
 		}

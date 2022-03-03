@@ -8,6 +8,7 @@ import java.io.IOException;
 import com.Albert.Userinterface.Gui;
 import com.Albert.game.Block;
 import com.Albert.game.Game;
+import com.Albert.inout.Audio;
 //import com.Albert.inout.Backgroundplayer;
 import com.Albert.inout.DataHandler;
 
@@ -28,6 +29,10 @@ public class Main {
 			System.out.println("GUI failed");
 			e.printStackTrace();
 		}
+		
+		/* Mussik */
+		new Audio() ;
+		Audio.musikplay("rsc/Music/backgroundmusik.wav", true, 2);
 		
 		
 		
