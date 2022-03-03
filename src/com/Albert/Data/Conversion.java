@@ -1,6 +1,19 @@
 package com.Albert.Data;
 
-
+/*
+ * Diese Klasa
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 public class Conversion {
 

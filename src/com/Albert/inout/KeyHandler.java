@@ -32,7 +32,7 @@ public class KeyHandler implements KeyListener {
 		  
 		  if(e.getKeyCode() == KeyEvent.VK_SPACE)
 		  {
-			  if(!Collision.collidInRotation(Game.currentBlock))
+			  if(!Collision.collideInRotation(Game.currentBlock))
 			  {
 			  	Game.currentBlock.rotate();}
 		  }
