@@ -1,11 +1,13 @@
 package com.Albert.inout;
 
-/* von Escape9022 inspiriert : https://github.com/Escape9002/RunningWIlbert/blob/master/RunningWilbert/src/com/game/RunningWilbert/AudioPlayer.java
- * 
- * 
+/* 
+ * Audio Player zum Abspielen der Musik und Soundeffekte während des Spieles
+ * Zum Abspielen der Musik mit die Methode wird der Darteipfad ( String),
+ *  die Info auf er Wiederholt werden soll (boolean perma)
+ * und die Lautstärkenregulation mit Abstufungen von 10 als Int benötigt
  * 
  */
-
+/* Import */
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -13,19 +15,17 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import javax.swing.JOptionPane;
 
-public class Audio{
+public class Audio{ 
+
 	
 	
-	public Audio() {
-	}
-	
-	public static void play(String filepath, boolean perma, int volume) {
+	public static void play(String filepath, boolean perma, int volume) { // Methode mit den Übergabe Werten für den Pfad, den Loop und die Lautstärke 
 		
 		try {
 		
-		File musicPath = new File(filepath);
-		if(musicPath.exists()) {
-			AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+		File musicPath = new File(filepath); // File System
+		if(musicPath.exists()) {  // Überprüft ob am angegeben Platz Musik ist
+			AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath); // 
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioInput);
 			clip.start();
@@ -35,7 +35,7 @@ public class Audio{
 			
 			if(perma == true) {
 				clip.loop(Clip.LOOP_CONTINUOUSLY);
-		
+		//while()    {} 
 			}
 			
 		}else {

@@ -20,7 +20,7 @@ public class DrawMenu extends JLabel {
 			g.setColor(Color.WHITE); 
 			System.out.println("Leck mich am arsch");
 			//Startbildschirm
-			g.drawString("Q zum spielen", Gui.width /2, Gui.height /2+10);
+			g.drawString("Enter zum spielen", Gui.width /2, Gui.height /2+10);
 		}else if(Game.gamestate == GameState.pause) {
 			g.setColor(Color.CYAN);
 			g.fillRect(0, Gui.height /2 -50, Gui.width +200 , 100);
@@ -34,7 +34,7 @@ public class DrawMenu extends JLabel {
 			g.setColor(Color.WHITE); 
 			
 			//Ende
-			g.drawString("You Lost. Q to play again", 75, Gui.height /2+10);
+			g.drawString("You Lost. Enter to play again", 75, Gui.height /2+10);
 		}
  		
 		repaint();

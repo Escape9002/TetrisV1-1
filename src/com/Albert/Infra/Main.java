@@ -1,6 +1,5 @@
 package com.Albert.Infra;
-
-/*
+/* Imports
 import java.awt.FontFormatException;
 import java.io.IOException;
 */
@@ -12,29 +11,31 @@ import com.Albert.inout.Audio;
 //import com.Albert.inout.Backgroundplayer;
 import com.Albert.inout.DataHandler;
 
+/* Main Klasse, die das Spiel startet */
+
 public class Main {
-	public  static void main(String[] args) {          // Main Methode
+	public  static void main(String[] args) {   
 		
-		DataHandler.load();
+		DataHandler.load(); // Laden des Highscore aus vorherigen Spielständen (save.txt)
 		
 		
-		Game.currentBlock = new Block();
-		Game.blocks.add(Game.currentBlock);
-		Game.nextBlock = new Block();
+		Game.currentBlock = new Block();   // Den Current Block zum Start generieren
+		Game.blocks.add(Game.currentBlock); // Den ersten Current Block in die Arraylist aller Blöcke eintragen
+		Game.nextBlock = new Block(); //Den next Block generieren
 		
 		try {
-			Gui g = new Gui();
+			Gui g = new Gui(); //Gui Objekt erstellen und die Methode create des Spielfelds wird ausgeführt
 			g.create();
 		} catch (Exception e) {
-			System.out.println("GUI failed");
+			System.out.println("GUI failed"); //debug
 			e.printStackTrace();
 		}
 		
 		/* Mussik */
 		
-		Audio.play("rsc/Music/backgroundmusik.wav", true, 2);
+		Audio.play("rsc/Music/backgroundmusik.wav", true, 2); // Die Hintergrundmusik wird gestarten, diese ist permanent
 		
-		startLoop(); // Ausführen der Methode GameLoop( weiter unten)
+		startLoop(); // Ausführen der Methode zum Starten der Gameloop (weiter unten)
 		
 	}
 

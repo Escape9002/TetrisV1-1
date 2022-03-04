@@ -1,5 +1,6 @@
 package com.Albert.Userinterface;
 
+/*Import */
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -12,7 +13,7 @@ import com.Albert.game.Game;
 public class DrawGame extends JLabel {
 
 	/**
-	 * 
+	 *  
 	 */
 	private static final long serialVersionUID = 1L;
 
