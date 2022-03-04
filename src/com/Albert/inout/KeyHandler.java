@@ -20,10 +20,10 @@ public class KeyHandler implements KeyListener {
 		
 	  if(Game.gamestate == GameState.start)
 	  {
-		  if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+		  if(e.getKeyCode() == KeyEvent.VK_Q) {
 			  
 			  Game.gamestate = GameState.ingame;
-			    
+			    System.out.println("q unnd " + Game.gamestate);
 		  }
       }
 	  

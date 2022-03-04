@@ -9,8 +9,10 @@ public class GameLoop extends Thread{
 	private boolean running =true;
 	
 	public void run() {
-		while(running ) {
+		while(running) {
 			try {
+		
+			System.out.println("man");
 			if(Game.gamestate == GameState.ingame) {
 				
 				if(!Collision.collideWithWall(Game.currentBlock, 0) ) 
@@ -35,13 +37,21 @@ public class GameLoop extends Thread{
 				}
 			}
 			if(!Game.speedup) {
-				sleep(1000); //zeit ändern
+				if(java.lang.Math.round(1000 - (0.001 * Game.blocks.size())) > 100 ) {
+					
+				sleep(java.lang.Math.round(1000 - (0.001 * Game.blocks.size())) );//zeit ändern
+				System.out.println("Speed " + java.lang.Math.round(1000 - (0.001 * Game.blocks.size())));
+				}else {
+					sleep(100);
+				}
+				
 			}else {
 				sleep(100);
 			}
+		System.out.println(Game.blocks.size());
+		System.out.println(Game.currentBlock.getY());
 		}catch(InterruptedException e) {
 			e.printStackTrace(); 
 		}
 	}
-}
-}
+	}}

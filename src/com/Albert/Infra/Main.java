@@ -32,9 +32,7 @@ public class Main {
 		
 		/* Mussik */
 		
-		Audio.musikplay("rsc/Music/backgroundmusik.wav", true, 2);
-		
-		
+		Audio.play("rsc/Music/backgroundmusik.wav", true, 2);
 		
 		startLoop(); // Ausführen der Methode GameLoop( weiter unten)
 		

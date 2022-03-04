@@ -11,53 +11,40 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
+import javax.swing.JOptionPane;
 
 public class Audio{
 	
-	public static synchronized void musikplay(String name, boolean permanent, int volumered) {
+	
+	public Audio() {
+	}
+	
+	public static void play(String filepath, boolean perma, int volume) {
 		
+		try {
 		
-	final String trackname = name;
-	final boolean permaloop = permanent;
-	final int volumestate = volumered;
-	
-	
-	
-	
-	new Thread(new Runnable() {
-		
-		public void run() {
+		File musicPath = new File(filepath);
+		if(musicPath.exists()) {
+			AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInput);
+			clip.start();
 			
-			while(true) {//also immer {
+			FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+			gainControl.setValue(volume*-10f);
 			
-				try {
-					
-					Clip clip1 = AudioSystem.getClip();
-					AudioInputStream inputstream =AudioSystem.getAudioInputStream(new File(trackname));
-					clip1.open(inputstream);
-					
-					FloatControl gainControl = (FloatControl) clip1.getControl(FloatControl.Type.MASTER_GAIN);
-					gainControl.setValue(volumestate*-10f);
-					
-					if(permaloop == true) {
-					clip1.loop(Clip.LOOP_CONTINUOUSLY);
-					Thread.sleep(clip1.getMicrosecondLength()/1000);
-					} else {
-			      
-					}
-					System.out.println(trackname + " played");
-					
-					
-					
-					
-				} catch (Exception e) {
-					
-					e.printStackTrace();
-				}
-				
-				
+			if(perma == true) {
+				clip.loop(Clip.LOOP_CONTINUOUSLY);
+				while(clip.isRunning()) {}
 			}
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "couldnt find the file");
 		}
-	}).start();
+			
+			
+		}catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "ERROR");
+		}
 	}
 }
