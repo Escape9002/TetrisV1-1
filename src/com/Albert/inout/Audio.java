@@ -2,8 +2,8 @@ package com.Albert.inout;
 
 /* 
  * Audio Player zum Abspielen der Musik und Soundeffekte während des Spieles
- * Zum Abspielen der Musik mit die Methode wird der Darteipfad ( String),
- *  die Info auf er Wiederholt werden soll (boolean perma)
+ * Zum Abspielen der Musik  wird der Darteipfad ( String),
+ *  die Info ob er Wiederholt werden soll (boolean perma)
  * und die Lautstärkenregulation mit Abstufungen von 10 als Int benötigt
  * 
  */
