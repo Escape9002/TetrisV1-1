@@ -26,25 +26,25 @@ public class Audio{
 		File musicPath = new File(filepath); // File System
 		if(musicPath.exists()) {  // Überprüft ob am angegeben Platz Musik ist
 			AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath); // 
-			Clip clip = AudioSystem.getClip();
+			Clip clip = AudioSystem.getClip(); // Speichern der Musik in einem Clip (Clip = VAriablentyp importiert)
 			clip.open(audioInput);
-			clip.start();
+			clip.start();//Abspielen des Clips
 			
-			FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			gainControl.setValue(volume*-10f);
+			FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN); // Control zum Ändern der Lautstärke
+			gainControl.setValue(volume*-10f); // Ändern der Lautstärke
 			
-			if(perma == true) {
-				clip.loop(Clip.LOOP_CONTINUOUSLY);
-		//while()    {} 
+			if(perma == true) { // Falls die Musik dauerhaft abgespielt werden soll (perma = true)
+				clip.loop(Clip.LOOP_CONTINUOUSLY);// Clip unendlich loopen
+		//while()    {}  // Das war der  fehler
 			}
 			
 		}else {
-			JOptionPane.showMessageDialog(null, "couldnt find the file");
+			JOptionPane.showMessageDialog(null, "couldnt find the file"); //Exception
 		}
 			
 			
-		}catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "ERROR");
+		}catch (Exception e) { 
+			JOptionPane.showMessageDialog(null, "ERROR"); // Exception
 		}
 	}
 }

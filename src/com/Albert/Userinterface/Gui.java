@@ -1,5 +1,7 @@
 package com.Albert.Userinterface;
 
+/*Imports*/
+
 import javax.swing.JFrame;
 import com.Albert.inout.KeyHandler;
 import javax.swing.JLabel;
@@ -14,13 +16,13 @@ public class Gui {
 	public static int anzahlhoehe =18; // Anzahl der Felder in der Höhe
 	
 	
-	JFrame jf;
+	JFrame jf; // Jframe
 	
 	
-	public void create() { //Methode zum Erzeugen des GUIS
+	public void create() { //Methode zum Erzeugen des GUIS wird in der MAin Klasse aufgerufen
 		
 		
-		jf =new JFrame("TetrisAlbert");
+		jf =new JFrame("TetrisAlbert"); // Titel des Fensters
 		jf.setSize(width +217, height + 41); // Groesze des Spielfeldes + Linker Rand fuer Score + Hoehe damit es passt
 		
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Rotes X = Fensterschlieszen
@@ -33,21 +35,21 @@ public class Gui {
 		
 		jf.requestFocus();
 		
-		DrawMenu dm = new DrawMenu();
-		setupDraw(dm,0,0,width +200, height);
+		DrawMenu dm = new DrawMenu(); //  Menu objekts
+		setupDraw(dm,0,0,width +200, height); // Ausführen der Methode setup Draw mit dem Draw Menu Objekt
 		
 		
-		DrawGame dg =new DrawGame(); //Objekt zum  zeichnen der Kaestchend des Spielfelds
-		setupDraw(dg,0,0,width+1,height+1); 
+		DrawGame dg =new DrawGame(); //Objekt zum des DrawGame
+		setupDraw(dg,0,0,width+1,height+1); // Ausführen der Methode setup Draw mit dem Draw Game Objekt
 		
-		DrawInterface di =new DrawInterface(); //Zeichnen des Felds für den nächsten Block
-		setupDraw(di,width +1, 1, width ,height);
+		DrawInterface di =new DrawInterface(); // InterfaceObjekt
+		setupDraw(di,width +1, 1, width ,height); //// Ausführen der Methode setup Draw mit dem Draw Interface Objekt
 		
 		jf.setVisible(true); //Sichtbar
 		
 	}
 	
-	private void setupDraw(JLabel draw, int x, int y, int width, int height) { //Methode zum zeichnen 
+	private void setupDraw(JLabel draw, int x, int y, int width, int height) { //Methode zum zeichnen der Objekte mit Jframe
 		draw.setBounds(x, y, width, height);
 		draw.setVisible(true);
 		jf.add(draw);
