@@ -35,7 +35,7 @@ public class Audio{
 			
 			if(perma == true) {
 				clip.loop(Clip.LOOP_CONTINUOUSLY);
-				while(clip.isRunning()) {}
+		
 			}
 			
 		}else {
