@@ -7,18 +7,14 @@ package com.Albert.Data;
 
 public class Conversion {
 
+	public static int cellToCoord(int cell) { // Zelle zu Koordinaten wandeln
 
+		return cell * (32); // Wandelt Rasterzelle in Koordinaten
+	}
 
-public static int cellToCoord(int cell) { // Zelle zu Koordinaten wandeln
-		
-		return cell * (32); //Wandelt Rasterzelle in Koordinaten	
+	public static int coordoCell(int coord) {// Koordinaten zu Zellen wandeln
+
+		return coord / 32; // wandelt Koordinaten in Rasterzellen
 	}
-	
-	public static int coordoCell(int coord) {//  Koordinaten zu Zellen wandeln
-		
-		return coord / 32; //wandelt Koordinaten in Rasterzellen
-	}
-	
-	
-	
-} 
+
+}

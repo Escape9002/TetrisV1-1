@@ -8,14 +8,12 @@ import java.util.concurrent.ThreadLocalRandom;
  
  */
 
-
-
 public enum Blocktype {
-	I,O,T,L,J,Z,S; // Type kann die einelnen Bloecke waehlen
-	
+	I, O, T, L, J, Z, S; // Type kann die einelnen Bloecke waehlen
+
 	public static Blocktype random() { // Methode zum erzeugen eines zufälligen Blocktypes
-		
-		return values()[ThreadLocalRandom.current().nextInt(0,values().length)];
+
+		return values()[ThreadLocalRandom.current().nextInt(0, values().length)];
 
 	}
 }
