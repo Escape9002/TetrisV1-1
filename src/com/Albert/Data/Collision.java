@@ -284,9 +284,7 @@ public class Collision {
 			} else {
 				blocksInRow = 0;
 			}
-
 		}
-
 		Game.score += Game.scoreToAdd; // endgültigen Score to add wird auf den eigentlichen Score addiert
 		Game.scoreToAdd = 0; // Variable wird zurückgesetzt
 
@@ -296,7 +294,6 @@ public class Collision {
 			Audio.play("rsc/Music/succes.wav", false, 0); // Sound wird abgespielt, da Highscore überholt
 		}
 	}
-
 	/*
 	 * Methode zum löschen aller Werte einer vollen Reihe
 	 */

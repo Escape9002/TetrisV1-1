@@ -31,7 +31,7 @@ public class Gui {
 		
 		jf.setLayout(null);  
 		
-		jf.addKeyListener(new KeyHandler()); //Neues Objekt der Klasse KeyHandler
+		jf.addKeyListener(new KeyHandler()); //Tastatur
 		
 		jf.requestFocus();
 		
@@ -52,9 +52,6 @@ public class Gui {
 	private void setupDraw(JLabel draw, int x, int y, int width, int height) { //Methode zum zeichnen der Objekte mit Jframe
 		draw.setBounds(x, y, width, height);
 		draw.setVisible(true);
-		jf.add(draw);
-		
-	}
-	
-	
+		jf.add(draw);	
+	}	
 }
