@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class Audio {
 
 	public static void play(String filepath, boolean perma, int volume) { // Methode mit den Übergabe Werten für den Pfad, den Loop und die Lautstärke
-
+/*
 		try {
 
 			File musicPath = new File(filepath); // File System
@@ -42,6 +42,6 @@ public class Audio {
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERROR"); // Exception
-		}
+		}*/
 	}
 }
